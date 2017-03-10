@@ -15,6 +15,7 @@ module.exports = {
     port: 3000,
     historyApiFallback: true,
   },
+  devtool: 'eval',
   module: {
     rules: [
       {
@@ -24,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.json$/,
-        use: 'json',
+        use: 'json-loader',
       },
       {
         test: /\.css$/,
@@ -44,7 +45,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      root: path.resolve( __dirname, './client' ),
+      views: path.resolve( __dirname, './client/views' ),
+      config: path.resolve( __dirname, './client/config' ),
+      styles: path.resolve( __dirname, './client/styles' ),
     },
     extensions: ['.js', '.jsx'],
   }
